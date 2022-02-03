@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Movie Database";
+}
+@model Movies.Models.MovieResponse
+
+<h1>Movie Form</h1>
+<br />
+
+<div>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="CategoryID">Category:</label>
+        <select asp-for="CategoryID">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select>
+        <br />
+        <label asp-for="MovieTitle" >Movie Title:</label>
+        <input asp-for="MovieTitle" />
+        <br />
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" />
+        <br />
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director" />
+        <br />
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating">
+            <option value="none">-</option>
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+        </select>
+        <br />
+        <label asp-for="Edited">Edited:</label>
+        <select asp-for="Edited">
+            <option value="none">-</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br />
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo" />
+        <br />
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" />
+        <br />
+        <button type="submit">Submit Form</button>
+    </form>
+</div>
+
+
